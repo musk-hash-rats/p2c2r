@@ -1,0 +1,8 @@
+# Development requirements
+-r requirements.txt
+
+# Additional development tools
+ipython>=8.0.0
+ipdb>=0.13.0
+build>=0.10.0
+twine>=4.0.0
