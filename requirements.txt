@@ -1,5 +1,11 @@
-# No runtime dependencies required for the PoC
-# All dependencies are built-in Python modules
+# Runtime dependencies for ML and advanced features
+numpy>=1.24.0  # For ML predictions and task splitting
+scikit-learn>=1.3.0  # For production ML models (GradientBoosting, etc.)
+pygame>=2.5.0  # For interactive demo (ray tracing game)
+
+# Network dependencies for distributed system
+websockets>=12.0  # For WebSocket communication between peers, cloud, and users
+psutil>=5.9.0  # For system resource monitoring (CPU, memory, etc.)
 
 # Development dependencies (optional)
 pytest>=7.0.0

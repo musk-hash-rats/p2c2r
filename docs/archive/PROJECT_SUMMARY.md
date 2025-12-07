@@ -1,8 +1,26 @@
-# 🚀 P2C2G Project - Complete Setup Summary
+# 🚀 P2C2R Project - Complete Summary
+
+## 🎮 NEW: Interactive Pygame Demo!
+
+**Play a space shooter where ray tracing is offloaded to peers!**
+```bash
+python examples/pygame_raytracing_demo.py
+```
+- Toggle P2C2R on/off with 'T' key - see the FPS difference!
+- Watch complexity increase as waves progress
+- See ML learning optimize peer selection
+- **Visual, interactive proof that P2C2R works!**
+
+---
 
 ## ✅ What's Been Created
 
-Your **P2C2G (Peer-to-Cloud-to-Gamer)** distributed computing proof of concept is fully set up and ready to go!
+Your **P2C2R (Peer-to-Cloud-to-Renter)** hybrid compute-assist system is fully built with:
+- ✅ Core distributed computing framework
+- ✅ ML-enhanced coordinator (learns over time)
+- ✅ Intelligent task splitting (spatial, functional, pipeline)
+- ✅ **Interactive Pygame demo (NEW!)**
+- ✅ Comprehensive documentation
 
 ### 📁 Project Structure (30 files created)
 
@@ -170,10 +188,9 @@ git push -u origin main
 
 **📖 Detailed instructions:** See `docs/GITHUB_SETUP.md` and `docs/GIT_GUIDE.md`
 
-### 5. Start Development / Discord Integration
+### 5. Start Development
 Once comfortable with the code, consider:
 
-- Adding Discord bot integration
 - Creating web visualization
 - Implementing real video processing
 - Adding more sophisticated scheduling
@@ -225,9 +242,9 @@ git push
 
 See `LICENSE` file for full details.
 
-## 💭 Discord Integration Ideas
+## 💭 Future Integration Ideas
 
-Since you mentioned working with Discord:
+Potential integrations:
 
 1. **Status Bot**
    - Post task completion stats

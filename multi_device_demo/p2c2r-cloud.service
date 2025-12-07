@@ -1,0 +1,18 @@
+[Unit]
+Description=P2C2R Cloud Coordinator
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/multi_device_demo
+ExecStart=/usr/bin/python3 /home/ubuntu/multi_device_demo/run_cloud.py
+Restart=always
+RestartSec=10
+
+# Logging
+StandardOutput=append:/var/log/p2c2r-cloud.log
+StandardError=append:/var/log/p2c2r-cloud-error.log
+
+[Install]
+WantedBy=multi-user.target

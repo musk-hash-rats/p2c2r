@@ -210,7 +210,6 @@ stream = coordinator.assemble_stream(["frame_001", "frame_002", ...])
 
 ### Phase 2: Enhancements
 - [ ] Add real-time visualization (e.g., web dashboard)
-- [ ] Implement Discord bot for notifications
 - [ ] Add metrics collection (Prometheus/Grafana)
 - [ ] Create interactive demo UI
 - [ ] Add network partition simulation
@@ -229,11 +228,11 @@ stream = coordinator.assemble_stream(["frame_001", "frame_002", ...])
 - [ ] Create deployment scripts (Docker/K8s)
 - [ ] Add monitoring and alerting
 
-## Discord Integration Ideas
+## Future Integration Ideas
 
-Since you mentioned Discord, here are some ideas:
+Potential external integrations:
 
-1. **Status Bot**: Post task completion stats to Discord
+1. **Status Notifications**: Post task completion stats to monitoring systems
 2. **Monitoring**: Alert on peer failures or high latency
 3. **Control Bot**: Commands to start/stop simulations
 4. **Visualization**: Generate and post performance graphs
@@ -280,6 +279,6 @@ Your P2C2G project is ready for:
 1. ✅ Code review and experimentation
 2. ✅ GitHub repository creation
 3. ✅ Further development
-4. ✅ Integration with other systems (Discord, etc.)
+4. ✅ Integration capabilities
 
 Take your time reviewing the code and documentation. Let me know what you'd like to work on next!

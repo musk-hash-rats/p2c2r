@@ -1,0 +1,34 @@
+{
+  "name": "com.p2c2r.compute-assist",
+  "version": "0.1.0",
+  "displayName": "P2C2R Compute Assist",
+  "description": "Offload heavy compute tasks (AI, ray tracing, physics) to distributed peer network. Get RTX-level graphics on any GPU.",
+  "unity": "2020.3",
+  "keywords": [
+    "cloud",
+    "compute",
+    "ray tracing",
+    "ai",
+    "physics",
+    "distributed",
+    "p2p"
+  ],
+  "author": {
+    "name": "P2C2R Team",
+    "email": "dev@p2c2r.com",
+    "url": "https://p2c2r.com"
+  },
+  "dependencies": {},
+  "samples": [
+    {
+      "displayName": "AI NPC Dialogue",
+      "description": "Example of offloading NPC dialogue generation to P2C2R",
+      "path": "Samples~/AINPCDialogue"
+    },
+    {
+      "displayName": "Ray Tracing Enhancement",
+      "description": "Add ray-traced reflections to any scene",
+      "path": "Samples~/RayTracingEnhancement"
+    }
+  ]
+}
