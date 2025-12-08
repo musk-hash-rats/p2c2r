@@ -153,7 +153,7 @@ P2c2gPOC/
 **Project Phase: CONTRACT DEFINITIONS**
 
 This is a **specification-only repository**. You implement:
-- [ ] Networking layer (WebSocket/gRPC/TCP)
+- [ ] Networking layer (WebSocket/gRPC/TCP) # >^.^< I am currently working on this.
 - [ ] Task execution (algorithms for AI, physics, rendering)
 - [ ] Coordinator logic (scheduling, failover, load balancing)
 - [ ] Peer node logic (task execution, heartbeats)
