@@ -1,10 +1,15 @@
-# 🌐 Multi-Device P2C2R Demo - Community Gaming
+# 🌐 Multi-Device P2C2R Demo - Deployment Guide
+
+**⚠️ NO IMPLEMENTATION FILES - CONTRACTS ONLY ⚠️**
+
+> This directory previously contained demo scripts (`run_cloud.py`, `run_peer.py`, `run_gamer.py`).  
+> All implementation files have been **removed**. You must implement them yourself based on the contracts.
 
 ## 💡 The Vision
 
 > *"A way for the community to help out less fortunate gamers."*
 
-This demonstrates **community-powered gaming**: helpers share their idle GPUs so kids can play AAA games on cheap laptops.
+This guide explains how to **deploy** your P2C2R implementation across the internet once you've built it.
 
 **Read the full vision**: [../docs/THE_VISION.md](../docs/THE_VISION.md) ❤️
 
@@ -38,66 +43,114 @@ This is a **distributed network** across the internet:
 - 98% cheaper than buying gaming PC ($0.01/hr vs $2000 upfront)
 - Gamers helping gamers ❤️
 
-## Prerequisites
+## 🔴 What You Need To Implement First
 
-### All Devices Need:
-- Python 3.8+
-- `websockets` package: `pip3 install websockets`
-- Internet connection
+Before deploying, you must implement the contracts in `../contracts/`:
 
-### Device 2 (Cloud Server) Needs:
-- **Public IP or domain name** (e.g., AWS, DigitalOcean, your own server)
-- **Port 8765 open to internet** (firewall/router configured)
-- OR use **ngrok** for testing without public IP (see below)
+1. **`coordinator.py`** - Central server that orchestrates everything
+   - Listen for peer connections
+   - Accept task submissions from gamers
+   - Distribute tasks to peers
+   - Aggregate results
+   
+2. **`peer_node.py`** - Worker that runs on helper machines
+   - Connect to coordinator
+   - Execute tasks (AI, physics, rendering)
+   - Return results
 
-## Quick Setup
+3. **`gamer_client.py`** - Client that submits work
+   - Connect to coordinator
+   - Submit game tasks
+   - Receive processed results
 
-### Option A: You Have a Public Server (AWS, DigitalOcean, etc.)
+4. **`task_types.py`** - Task execution logic
+   - Implement upscaling, AI, physics, ray tracing, etc.
 
-**1. Get your server's public IP or domain:**
+**All contract files raise `NotImplementedError()` - you replace with real code.**
+
+## Deployment Architecture
+
+### Option A: Cloud Server (Production)
+
+**You need:**
+- Cloud VM (AWS EC2, DigitalOcean, GCP, Azure)
+- Public IP address
+- Port 8765 open (or your chosen port)
+
+**Steps:**
+
+1. **Provision Cloud VM**
 ```bash
-# On your cloud server
-curl ifconfig.me
-# Output example: 203.0.113.42
-
-# Or use domain: p2c2r.example.com
+# Example: AWS EC2 t3.medium
+# - 2 vCPU, 4GB RAM
+# - Ubuntu 22.04 LTS
+# - Public IP: 203.0.113.42
 ```
 
-**2. Open port 8765:**
+2. **Open Firewall Port**
 ```bash
-# AWS: Configure security group to allow TCP 8765
-# DigitalOcean: Configure firewall
-# Your server: sudo ufw allow 8765
+# AWS: Security Group → Allow TCP 8765
+# DigitalOcean: Firewall → Allow TCP 8765
+# On server: sudo ufw allow 8765
 ```
 
-### Option B: Testing Without Public Server (Use ngrok)
+3. **Deploy Your Coordinator Implementation**
+```bash
+# SSH into your server
+ssh ubuntu@203.0.113.42
 
-**If you don't have a public server yet, use ngrok for testing:**
+# Upload your coordinator implementation
+scp coordinator.py ubuntu@203.0.113.42:~/
+
+# Run it
+python3 coordinator.py --listen-port 8765
+```
+
+4. **Connect Peers (Helpers)**
+```bash
+# On helper machines anywhere on internet
+python3 peer_node.py --coordinator-url ws://203.0.113.42:8765
+```
+
+5. **Connect Gamers**
+```bash
+# On gamer machines
+python3 gamer_client.py --coordinator-url ws://203.0.113.42:8765
+```
+
+### Option B: Testing with ngrok (No Cloud Server Needed)
+
+**For development/testing without public IP:**
 
 ```bash
 # 1. Install ngrok (free): https://ngrok.com/download
 
-# 2. On Device 2, start the cloud:
-python3 run_cloud.py
+# 2. Start your coordinator locally
+python3 coordinator.py --listen-port 8765
 
-# 3. In another terminal on Device 2, expose it:
+# 3. In another terminal, expose it
 ngrok tcp 8765
 
-# Output will show:
+# Output:
 # Forwarding: tcp://0.tcp.ngrok.io:12345 -> localhost:8765
 
-# 4. Use the ngrok address on other devices:
-# python3 run_peer.py --cloud-ip 0.tcp.ngrok.io --cloud-port 12345
+# 4. Connect peers/gamers using ngrok address
+python3 peer_node.py --coordinator-url ws://0.tcp.ngrok.io:12345
+python3 gamer_client.py --coordinator-url ws://0.tcp.ngrok.io:12345
 ```
 
-### 2. Start on Each Device
+## What Was Here Before
 
-**Device 2 (Cloud - Your Server):**
-```bash
-cd multi_device_demo
-python3 run_cloud.py
-# Server now listening on 0.0.0.0:8765
-```
+**Deleted files (you must reimplement):**
+- `run_cloud.py` - Coordinator startup script
+- `run_peer.py` - Peer node startup script  
+- `run_gamer.py` - Gamer client startup script
+- `cloud_storage.py` - Database implementation
+- `network_config.py` - Network configuration
+- `test_single_machine.py` - Testing script
+
+**These were removed because they were incomplete/non-functional.**  
+**You implement them based on `../contracts/`.**
 
 **Device 1 (Peer - Anywhere in the World):**
 ```bash
