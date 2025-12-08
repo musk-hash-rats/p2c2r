@@ -86,7 +86,7 @@ Player just sees: Smooth, beautiful game running on their potato laptop
 - When you're at work → Your PC helps a kid play Minecraft
 - When you're asleep → Your rig helps a student play Elden Ring
 - **Optional**: Get paid $0.10-0.15/hour (beer money)
-- **Or**: Volunteer to help the community (like BOINC)
+- **Or**: Volunteer to help the community (distributed computing)
 
 ### For Everyone
 - **Reduces e-waste** (old PCs stay useful longer)
@@ -204,8 +204,8 @@ $2000 PC sits idle 8 hours/day → Wasted compute
 | Fixed capacity | Scales with community |
 | Profits go to corporation | Helpers get paid directly |
 
-### vs. BOINC (Folding@Home)
-| BOINC | P2C2R |
+### vs. Other Volunteer Computing Projects
+| Traditional | P2C2R |
 |-------|-------|
 | Volunteer only | Volunteer OR paid |
 | Scientific compute | Gaming (fun!) |

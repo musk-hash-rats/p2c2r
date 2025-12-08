@@ -42,7 +42,7 @@ python3 tools/monitoring/check_status.py
    - VM authoritative model
    - Security & validation
 
-4. **[multi_device_demo/BOINC_DEPLOYMENT.md](multi_device_demo/BOINC_DEPLOYMENT.md)**
+4. **[multi_device_demo/INTERNET_DEPLOYMENT.md](multi_device_demo/INTERNET_DEPLOYMENT.md)**
    - Internet deployment
    - ngrok testing
    - AWS production setup
@@ -131,7 +131,7 @@ python3 run_peer.py --cloud-ip 0.tcp.ngrok.io --cloud-port 12345
 ```
 
 ### Production (AWS/DigitalOcean)
-See `multi_device_demo/BOINC_DEPLOYMENT.md`
+See `multi_device_demo/INTERNET_DEPLOYMENT.md`
 
 ---
 

@@ -119,24 +119,24 @@
 - ❌ Modifying game executables (DMCA violations)
 - ❌ Using game assets without permission
 
-## 🌐 BOINC Model - Legal Considerations
+## 🌐 Distributed Computing - Legal Considerations
 
-### Our Advantage
-- ✅ BOINC is GPL, but we're NOT forking it
-- ✅ We're building similar concept from scratch (legal)
-- ✅ No code copied from BOINC
-- ✅ "BOINC-style" = business model description, not code theft
+### Our Approach
+- ✅ Building from scratch with original code
+- ✅ Using open distributed computing concepts (not copyrighted)
+- ✅ No code copied from other projects
+- ✅ "Distributed" = architectural pattern, not code theft
 
 ### What We Can Do
-- ✅ Study BOINC's architecture (public knowledge)
-- ✅ Implement similar patterns (not copyrighted)
-- ✅ Use same economic model (business methods generally not patentable)
-- ✅ Reference BOINC for comparison (fair use)
+- ✅ Study distributed computing architectures (public knowledge)
+- ✅ Implement similar patterns (architectural concepts not copyrighted)
+- ✅ Use standard networking protocols (WebSockets, TCP/IP)
+- ✅ Reference concepts for comparison (fair use)
 
 ### What We Cannot Do
-- ❌ Copy BOINC source code (GPL would force us to GPL)
-- ❌ Use BOINC trademarks in confusing way
-- ❌ Claim affiliation with BOINC project
+- ❌ Copy source code from other projects
+- ❌ Use others' trademarks in confusing way
+- ❌ Claim affiliation with other projects
 
 ## 💰 Payment Processing (Future)
 

@@ -60,7 +60,7 @@ setup.py             # Package setup
 
 **`multi_device_demo/`** - Production deployment
 - `README.md` - Setup guide
-- `BOINC_DEPLOYMENT.md` - AWS/DO guide
+- `INTERNET_DEPLOYMENT.md` - AWS/DO guide
 - `run_*.py` - Launch scripts
 - `cloud_storage.py` - Database
 
@@ -150,7 +150,7 @@ python3 run_cloud.py
 ### Everything Still Works!
 1. **Start the network**: `./start.sh`
 2. **Test it**: `python3 tools/testing/test_quick.py`
-3. **Deploy it**: See `multi_device_demo/BOINC_DEPLOYMENT.md`
+3. **Deploy it**: See `multi_device_demo/INTERNET_DEPLOYMENT.md`
 
 ### New Workflow
 ```bash
@@ -172,7 +172,7 @@ python3 run_gamer.py --cloud-ip <ip>    # Start gamer
 - **PROJECT_STRUCTURE.md**: This file (directory layout)
 - **LEGAL_COMPLIANCE.md**: Open source policy
 - **multi_device_demo/README.md**: Internet deployment
-- **multi_device_demo/BOINC_DEPLOYMENT.md**: Production guide
+- **multi_device_demo/INTERNET_DEPLOYMENT.md**: Production guide
 
 ## 🔍 Finding Things
 

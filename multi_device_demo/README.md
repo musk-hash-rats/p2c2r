@@ -10,7 +10,7 @@ This demonstrates **community-powered gaming**: helpers share their idle GPUs so
 
 ## The Three Components
 
-This is a **BOINC-style distributed network** across the internet:
+This is a **distributed network** across the internet:
 
 1. **COMMUNITY HELPERS (Peers)**: Anyone, anywhere with idle GPU/CPU to share
 2. **CLOUD VM (Coordinator)**: Game server on public internet - the "authoritative boss"

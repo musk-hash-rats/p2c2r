@@ -1,8 +1,8 @@
-# 🌍 BOINC-Style Deployment Guide
+# 🌍 Internet Deployment Guide
 
 ## Overview
 
-Deploy P2C2R like BOINC - one central server, contributors and gamers connect from anywhere.
+Deploy P2C2R as a distributed computing platform - one central server, contributors and gamers connect from anywhere.
 
 ## Architecture
 
@@ -161,7 +161,7 @@ python3 run_cloud.py
 # Crypto for peer payouts
 ```
 
-## Cost Analysis (BOINC Style)
+## Cost Analysis (Distributed)
 
 ### Your Server Costs:
 - **AWS t3.small**: $15/month (handles 100+ concurrent peers)
@@ -219,7 +219,7 @@ sqlite3 p2c2r_cloud.db "SELECT SUM(cost_usd) FROM tasks"
 sqlite3 p2c2r_cloud.db "SELECT peer_id, total_earned_usd FROM peers ORDER BY total_earned_usd DESC LIMIT 10"
 ```
 
-## Contributor Onboarding (BOINC Style)
+## Contributor Onboarding (Distributed)
 
 ### Make It Easy:
 
@@ -239,7 +239,7 @@ curl https://p2c2r.com/install.sh | bash
 - Contributors see: earnings, tasks completed, uptime
 - Gamers see: spending, savings vs GPU, task history
 
-## Testing Your BOINC-Style Setup
+## Testing Your Distributed Setup
 
 ### Test 1: Local Testing
 ```bash
@@ -289,9 +289,9 @@ python3 run_cloud.py
    - Give them: `python3 run_gamer.py --cloud-ip YOUR_IP`
    - Watch them save money!
 
-## The BOINC Comparison
+## The Distributed Computing Comparison
 
-| Feature | BOINC | P2C2R |
+| Feature | Distributed Computing | P2C2R |
 |---------|-------|-------|
 | Contributors earn? | No (volunteer) | Yes ($0.15/hr) |
 | Central server? | Yes | Yes |
@@ -300,7 +300,7 @@ python3 run_cloud.py
 | Purpose | Science | Gaming compute |
 | Scale | Millions | Starting small |
 
-**P2C2R = BOINC + Payments + Gaming Focus** 🚀
+**P2C2R = Distributed Computing + Payments + Gaming Focus** 🚀
 
 ---
 

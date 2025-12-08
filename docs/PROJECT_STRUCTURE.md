@@ -18,7 +18,7 @@ P2c2gPOC/
 │
 ├── 📁 multi_device_demo/          # ⭐ INTERNET DEPLOYMENT
 │   ├── README.md                  # Multi-device setup guide
-│   ├── BOINC_DEPLOYMENT.md        # Production deployment guide
+│   ├── INTERNET_DEPLOYMENT.md        # Production deployment guide
 │   ├── run_cloud.py               # Start cloud server
 │   ├── run_peer.py                # Start contributor
 │   ├── run_gamer.py               # Start gamer
@@ -75,11 +75,11 @@ The heart of P2C2R. All networking logic, task execution, and coordination.
 - `task_executors.py` - 9 real algorithms (AI, ray tracing, physics, etc.)
 
 ### `multi_device_demo/` - Production Ready
-Everything needed to deploy P2C2R over the internet (BOINC-style).
+Everything needed to deploy P2C2R over the internet (distributed).
 
 **Files:**
 - `README.md` - Complete setup guide
-- `BOINC_DEPLOYMENT.md` - AWS/DigitalOcean deployment
+- `INTERNET_DEPLOYMENT.md` - AWS/DigitalOcean deployment
 - `run_*.py` - Launcher scripts for each component
 - `cloud_storage.py` - SQLite database layer
 
@@ -121,7 +121,7 @@ python3 tools/monitoring/p2c2r_web_gui.py  # Web dashboard
 ### To Deploy
 ```bash
 cd multi_device_demo
-# Read BOINC_DEPLOYMENT.md for instructions
+# Read INTERNET_DEPLOYMENT.md for instructions
 ```
 
 ## 📝 File Count Summary

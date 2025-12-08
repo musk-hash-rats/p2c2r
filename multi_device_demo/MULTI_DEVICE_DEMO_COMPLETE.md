@@ -1,8 +1,8 @@
-# 🌐 Multi-Device P2C2R Demo - BOINC Style!
+# 🌐 Multi-Device P2C2R Demo - distributed!
 
 ## What You Have Now
 
-A **BOINC-style distributed computing platform** that works over the internet!
+A **distributed distributed computing platform** that works over the internet!
 
 ### The 3 Components
 
@@ -14,26 +14,26 @@ A **BOINC-style distributed computing platform** that works over the internet!
 │ • Home PC/GPU   │         │ • AWS/DO/etc    │         │ • Gaming PC     │
 │ • Earns $0.15/h │ INTERNET│ • Coordinator   │ INTERNET│ • Pays $0.01/h  │
 │ • Runs tasks    │         │ • SQLite DB     │         │ • Plays games   │
-│ • Like BOINC    │         │ • Port 8765     │         │ • Saves 99%     │
+│ • Like distributed computing    │         │ • Port 8765     │         │ • Saves 99%     │
 └─────────────────┘         └─────────────────┘         └─────────────────┘
   Could be in USA           Could be on AWS              Could be in Europe
 ```
 
-## How This is Different (BOINC Model)
+## How This is Different (distributed computing Model)
 
 **NOT a LAN demo** - This works over the real internet!
 
 - ✅ Contributors connect from anywhere in the world
 - ✅ Gamers connect from anywhere in the world
 - ✅ Central server with public IP/domain
-- ✅ Like BOINC, Folding@Home, but for gaming
+- ✅ Like distributed computing, Folding@Home, but for gaming
 - ✅ Proves the real "Uber of Compute" model
 
 ## Quick Start
 
 ### Option 1: Test with ngrok (No Server Needed!)
 
-**Perfect for testing the BOINC model right now:**
+**Perfect for testing the distributed computing model right now:**
 
 ```bash
 # 1. Install ngrok (free): https://ngrok.com/download
@@ -72,7 +72,7 @@ python3 run_peer.py --cloud-ip p2c2r.example.com
 python3 run_gamer.py --cloud-ip p2c2r.example.com
 ```
 
-**See `BOINC_DEPLOYMENT.md` for full setup guide!**
+**See `distributed computing_DEPLOYMENT.md` for full setup guide!**
 
 ## What Each Device Does
 

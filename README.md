@@ -44,18 +44,18 @@ Play AAA games on a potato laptop. Your community shares their idle GPU/CPU cycl
 python3 tools/testing/test_quick.py
 ```
 
-### Internet Deployment (BOINC Style)
+### Internet Deployment
 See [`multi_device_demo/README.md`](multi_device_demo/README.md) for:
 - Testing with ngrok (5 minutes, free)
 - Deploying to AWS/DigitalOcean (production)
-- Full BOINC-style setup
+- Full distributed network setup
 
 ## 📚 Documentation
 
 - **[The Vision](docs/THE_VISION.md)** ❤️ - Why we're building this (read this first!)
 - **[Quick Start Guide](docs/guides/QUICKSTART.md)** - Get running in 5 minutes
 - **[Multi-Device Setup](multi_device_demo/README.md)** - Internet deployment
-- **[BOINC Deployment](multi_device_demo/BOINC_DEPLOYMENT.md)** - Production guide
+- **[Internet Deployment](multi_device_demo/INTERNET_DEPLOYMENT.md)** - Production guide
 - **[Project Structure](docs/PROJECT_STRUCTURE.md)** - How files are organized
 - **[Legal Compliance](docs/LEGAL_COMPLIANCE.md)** - Open source policy
 
@@ -86,7 +86,7 @@ P2c2gPOC/
 - ✅ SQLite storage for tasks/results
 - ✅ Failover & retry logic
 - ✅ Web monitoring dashboard
-- ✅ BOINC-style distributed model
+- ✅ Distributed computing model
 - ✅ 100% open source (MIT/BSD/Apache 2.0)
 
 **Phase 2: Game Integration** 🚧 (Next!)
