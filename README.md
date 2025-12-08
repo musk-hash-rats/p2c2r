@@ -1,3 +1,7 @@
+Stop! ai has hallucinated everything you are seeing right now besides the "concept" everything beyond that is unfunctional and...
+is being scrapped
+I am currently writing a "code contract" and a structure map to work with 
+
 # P2C2R - Peer-to-Cloud-to-Renter
 
 **Community-Powered Gaming: Gamers Helping Gamers** ❤️
