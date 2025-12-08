@@ -1,6 +1,13 @@
 # P2C2R Quick Reference
 
-**Last Updated**: December 7, 2025
+**Last Updated**: December 8, 2025
+
+---
+
+## ⚠️ IMPORTANT: Contract-Only Repository
+
+**This repository contains INTERFACE CONTRACTS ONLY.**  
+All implementation files have been removed. You are responsible for implementing the actual functionality.
 
 ---
 
@@ -10,144 +17,204 @@
 
 ---
 
-## 🚀 Quick Start (3 Commands)
+## 📋 What's In This Repo
 
-```bash
-# 1. Start the network
-./start.sh
+This is a **contract-based architecture** defining interfaces for a distributed gaming compute system.
 
-# 2. Test it
-python3 tools/testing/test_quick.py
+### Contract Files (in `contracts/`)
 
-# 3. Check status
-python3 tools/monitoring/check_status.py
-```
+1. **`peer_node.py`** - Worker node interface
+2. **`coordinator.py`** - Central orchestration server interface
+3. **`gamer_client.py`** - End-user client interface
+4. **`task_types.py`** - Task execution interfaces
+5. **`protocol.py`** - Network protocol examples
+
+**All contracts raise `NotImplementedError()` - YOU implement the logic.**
 
 ---
 
 ## 📖 Essential Reading (In Order)
 
-1. **[docs/THE_VISION.md](docs/THE_VISION.md)** ❤️
+### 1. Understanding the Project
+
+1. **[README.md](README.md)** - Start here
+   - What this repo is (and isn't)
+   - Contract definitions
+   - Implementation guidance
+
+2. **[docs/THE_VISION.md](docs/THE_VISION.md)** ❤️
    - Why we're building this
    - Real-world examples
    - The impact on accessibility
 
-2. **[README.md](README.md)**
-   - Project overview
-   - Quick start guide
-   - Current status
+3. **[IMPLEMENTATION_CONTRACT.md](IMPLEMENTATION_CONTRACT.md)**
+   - Detailed contract specifications
+   - Data structures and interfaces
+   - Implementation priorities
 
-3. **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)**
-   - Technical design
-   - VM authoritative model
-   - Security & validation
+### 2. Performance and Best Practices
 
-4. **[multi_device_demo/INTERNET_DEPLOYMENT.md](multi_device_demo/INTERNET_DEPLOYMENT.md)**
-   - Internet deployment
-   - ngrok testing
-   - AWS production setup
+4. **[docs/PERFORMANCE_ISSUES_SUMMARY.md](docs/PERFORMANCE_ISSUES_SUMMARY.md)** ⚡
+   - Top 10 performance issues to avoid
+   - Quick reference with code examples
+   - Priority matrix
+
+5. **[docs/PERFORMANCE_OPTIMIZATION_GUIDE.md](docs/PERFORMANCE_OPTIMIZATION_GUIDE.md)** 📖
+   - Comprehensive optimization strategies
+   - Network, task execution, coordinator optimization
+   - Benchmarking and monitoring
+
+6. **[docs/VIBE_CODING_GUIDE.md](docs/VIBE_CODING_GUIDE.md)** 🎯
+   - What can be quickly prototyped vs. what needs precision
+   - PEP 8 formatting requirements (mandatory)
+   - Decision framework for implementation
+
+### 3. Architecture
+
+7. **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)**
+   - Technical design overview
+   - System components
+   - Communication patterns
 
 ---
 
-## 🏗️ Project Structure (Where Everything Is)
+## 🏗️ Project Structure
 
 ```
-P2c2gPOC/
-├── 📄 README.md              # Start here
-├── 📄 start.sh               # Run this to start
+p2c2r/
+├── 📄 README.md                    # Project overview
+├── 📄 QUICK_REFERENCE.md          # This file
+├── 📄 IMPLEMENTATION_CONTRACT.md   # Detailed contracts
 │
-├── 📁 network/               # Core code (cloud, peer, renter)
-├── 📁 multi_device_demo/     # Internet deployment
-├── 📁 tools/
-│   ├── testing/              # test_quick.py, etc.
-│   └── monitoring/           # Dashboards & status
-└── 📁 docs/
-    ├── THE_VISION.md         # Read this! ❤️
-    ├── ARCHITECTURE.md       # Technical design
-    ├── LEGAL_COMPLIANCE.md   # Open source policy
-    └── PROJECT_STRUCTURE.md  # File organization
+├── 📁 contracts/                   # Interface definitions (YOU IMPLEMENT)
+│   ├── peer_node.py               # Worker node interface
+│   ├── coordinator.py             # Orchestrator interface
+│   ├── gamer_client.py            # Client interface
+│   ├── task_types.py              # Task execution interfaces
+│   └── protocol.py                # Message format examples
+│
+├── 📁 docs/                        # Documentation
+│   ├── THE_VISION.md              # Project vision ❤️
+│   ├── ARCHITECTURE.md            # Technical design
+│   ├── PERFORMANCE_*.md           # Performance guides
+│   ├── VIBE_CODING_GUIDE.md       # Implementation approach
+│   └── LEGAL_COMPLIANCE.md        # Open source compliance
+│
+├── 📁 network/                     # Empty (you implement)
+├── 📁 scripts/                     # Setup scripts
+└── 📁 multi_device_demo/           # Empty (you implement)
 ```
 
 ---
 
-## 💡 How It Works (Simple)
+## 💡 How It Works (Conceptual)
 
 ```
-1. Gamer starts game
+1. Gamer submits task → Coordinator
    ↓
-2. Cloud VM hosts session (authoritative server)
+2. Coordinator queues task → assigns to best Peer
    ↓
-3. VM breaks work into micro-tasks
+3. Peer executes task → returns result
    ↓
-4. Community helpers run tasks (sandboxed, no game secrets)
+4. Coordinator forwards result → Gamer
    ↓
-5. VM validates results (prevents cheating)
-   ↓
-6. Gamer sees smooth gameplay on potato laptop! 🎉
+5. Gamer displays result (upscaled frame, AI response, etc.)
 ```
+
+**YOU IMPLEMENT:** Connection handling, task execution, load balancing, failover, etc.
 
 ---
 
 ## ✅ Current Status
 
-### Phase 1: POC ✓ (COMPLETE)
-- Real distributed network working
-- 9 task algorithms implemented
-- Internet deployment ready
-- Open source, legal compliance
+### Contract Definitions ✓ (COMPLETE)
+- Interface contracts defined
+- Performance optimization documented
+- Implementation guidelines provided
+- PEP 8 requirements specified
 
-### Phase 2: Game Integration 🚧 (NEXT)
-- Simple game demo
-- Sandboxed execution
-- Result validation
-- VM game server
-
-### Phase 3: Community Platform 🔮 (FUTURE)
-- Peer discovery
-- Payments
-- Dashboards
-- SDK for devs
+### YOUR Implementation 🔨 (TODO)
+- [ ] Network layer (WebSocket/gRPC/TCP)
+- [ ] Task executors (upscaling, AI, physics, etc.)
+- [ ] Coordinator logic (scheduling, failover, load balancing)
+- [ ] Peer node logic (task execution, heartbeats)
+- [ ] Gamer client (task submission, result retrieval)
+- [ ] Security (sandboxing, validation, authentication)
+- [ ] Deployment (Docker, Kubernetes, cloud setup)
 
 ---
 
-## 🧪 Testing Options
+## 🚀 Getting Started
 
-### Local Testing (Single Machine)
-```bash
-./start.sh
-python3 tools/testing/test_quick.py
+### Step 1: Choose Your Stack
+
+**Language Options:**
+- Python (asyncio, websockets) - Recommended for prototypes
+- Go (goroutines, net/http)
+- Rust (tokio, async-std)
+- TypeScript/Node.js (async/await)
+
+**Transport Options:**
+- WebSocket + JSON (simple, browser-compatible)
+- WebSocket + MessagePack (40% smaller, 5x faster)
+- gRPC + Protobuf (70% smaller, 10x faster)
+- Raw TCP (maximum control)
+
+### Step 2: Read Performance Guides
+
+**CRITICAL:** Review performance documentation BEFORE implementing:
+- Async/await patterns (10-100x improvement)
+- Connection pooling (eliminates 100-200ms overhead)
+- Intelligent peer selection (2-5x faster)
+- Result caching (near-zero latency for repeated tasks)
+
+### Step 3: Implement Contracts
+
+Replace `raise NotImplementedError()` in contract files with your implementation.
+
+**Example:**
+```python
+# contracts/peer_node.py (before)
+def connect(self) -> bool:
+    raise NotImplementedError("YOU IMPLEMENT THIS")
+
+# Your implementation (after)
+def connect(self) -> bool:
+    self.ws = await websockets.connect(self.coordinator_url)
+    await self.ws.send(json.dumps({"msg_type": "peer_register", ...}))
+    return True
 ```
 
-### Internet Testing (ngrok)
+### Step 4: Test & Deploy
+
 ```bash
-# Terminal 1
-python3 multi_device_demo/run_cloud.py
+# Install dependencies
+pip install -r requirements.txt
+pip install -r requirements-dev.txt
 
-# Terminal 2
-ngrok tcp 8765
+# Run tests (you write these)
+pytest tests/
 
-# Terminal 3 (different computer)
-python3 run_peer.py --cloud-ip 0.tcp.ngrok.io --cloud-port 12345
+# Start your implementation
+python your_coordinator.py
+python your_peer_node.py
+python your_client.py
 ```
-
-### Production (AWS/DigitalOcean)
-See `multi_device_demo/INTERNET_DEPLOYMENT.md`
 
 ---
 
 ## 🔐 Legal & Open Source
 
-**All dependencies are open source:**
+**All dependencies must be open source:**
 - MIT, BSD, Apache 2.0 licenses only
 - No proprietary code
 - No game EULA violations
-- Safe to use and modify
 
 See: [docs/LEGAL_COMPLIANCE.md](docs/LEGAL_COMPLIANCE.md)
 
 ---
 
-## 💰 Economics
+## 💰 Target Economics (When Implemented)
 
 | Component | Cost/Earnings |
 |-----------|--------------|
@@ -159,49 +226,87 @@ See: [docs/LEGAL_COMPLIANCE.md](docs/LEGAL_COMPLIANCE.md)
 
 ---
 
-## 📊 Real-World Example
+## 📊 Target Performance Metrics
 
-**Alex** (16, no gaming PC):
-- Plays modern AAA game on 2015 laptop
-- Powered by community helpers worldwide
-- Smooth 60fps gaming
-- **Total saved: $1980+**
+When implementing, aim for:
+- **End-to-end latency:** < 100ms (simple tasks)
+- **System throughput:** > 1000 tasks/sec (100 peers)
+- **Peer utilization:** > 80%
+- **Network overhead:** < 10%
+- **Success rate:** > 95%
 
-**Sarah** (28, has RTX 4080):
-- Shares idle GPU while at work
-- Helps 10-20 gamers daily
-- Earns $36/month OR donates
-- **Feels good helping kids game** ❤️
+See [docs/PERFORMANCE_OPTIMIZATION_GUIDE.md](docs/PERFORMANCE_OPTIMIZATION_GUIDE.md) for how to achieve these.
 
 ---
 
-## 🛠️ Key Files
+## 🛠️ Available Tools
 
-### To Start System
-- `start.sh` - Quick launcher
-- `scripts/run_network.sh` - Full network launcher
+### Development Setup
+- `scripts/setup.sh` - Environment setup
+- `pyproject.toml` - Python project configuration
+- `.flake8` - Linting configuration
 
-### To Test
-- `tools/testing/test_quick.py` - Interactive tests
-- `tools/testing/demo_functionality.py` - Automated suite
+### Network Scripts (templates)
+- `scripts/run_network.sh` - Template for launching distributed system
+- `start.sh` - Quick launcher template
 
-### To Monitor
-- `tools/monitoring/check_status.py` - CLI status
-- `tools/monitoring/p2c2r_web_gui.py` - Web dashboard
-
-### To Deploy
-- `multi_device_demo/run_cloud.py` - Start cloud server
-- `multi_device_demo/run_peer.py` - Start helper
-- `multi_device_demo/run_gamer.py` - Start gamer client
+**Note:** These scripts reference implementation files you need to create.
 
 ---
 
-## 🎯 Next Steps
+## 🎯 Implementation Priorities
 
-1. **Test locally** - Run `./start.sh` and verify it works
-2. **Read the vision** - Understand why we're building this
-3. **Test on internet** - Try ngrok deployment
-4. **Build Phase 2** - Simple game demo
+### Phase 1: Basic Infrastructure (Start Here)
+1. Implement basic Coordinator (accept connections)
+2. Implement basic Peer (connect to coordinator)
+3. Implement message passing (JSON over WebSocket)
+4. Test: Peer can connect and receive ping
+
+### Phase 2: Task Execution
+1. Implement one simple task type (e.g., echo)
+2. Implement task assignment logic
+3. Implement result return
+4. Test: Submit task → execute → return result
+
+### Phase 3: Production Features
+1. Add error handling and retries
+2. Add heartbeat monitoring
+3. Add multiple peer support
+4. Add intelligent peer selection
+5. Test: Multiple peers, failover scenarios
+
+### Phase 4: Optimization
+1. Profile and identify bottlenecks
+2. Implement caching
+3. Add GPU acceleration
+4. Optimize network protocol
+5. Load test with 100+ peers
+
+---
+
+## ⚠️ What NOT to Do
+
+Before implementing, read [docs/VIBE_CODING_GUIDE.md](docs/VIBE_CODING_GUIDE.md) to understand:
+
+**❌ Don't vibe code:**
+- Event loops (must use async/await)
+- Task queues (must use O(log n) data structures)
+- Peer selection (must be intelligent, not round-robin)
+- Timeouts (must be adaptive per task type)
+- Security/crypto (must use established libraries)
+- Concurrency primitives (race conditions are costly)
+
+**✅ Can vibe code:**
+- Initial prototypes and demos
+- Configuration parsing
+- Logging and debugging
+- Simple task executors (optimize later)
+
+**📏 Always follow PEP 8:**
+- 4 spaces indentation (not tabs)
+- 88 character line limit
+- Type hints for public APIs
+- Docstrings for all functions
 
 ---
 
@@ -217,38 +322,39 @@ Every community member should feel the warmth of helping others.
 
 ---
 
-## 📞 Quick Commands Cheatsheet
+## 📞 Key Commands (After Implementation)
 
 ```bash
-# Start everything
-./start.sh
+# Setup environment
+pip install -e .
+pip install -r requirements-dev.txt
 
-# Test it
-python3 tools/testing/test_quick.py
+# Format code (PEP 8)
+black contracts/ your_implementation/
+flake8 contracts/ your_implementation/
+mypy contracts/ your_implementation/
 
-# Check status
-python3 tools/monitoring/check_status.py
-
-# Web dashboard
-python3 tools/monitoring/p2c2r_web_gui.py
-# Then visit: http://localhost:5000
-
-# Run tests
+# Run tests (you write these)
 pytest tests/
 
-# Deploy to internet (cloud server)
-cd multi_device_demo
-python3 run_cloud.py
-
-# Connect as helper (from anywhere)
-python3 run_peer.py --cloud-ip your-server.com
-
-# Connect as gamer (from anywhere)
-python3 run_gamer.py --cloud-ip your-server.com
+# Start your implementation
+python your_coordinator.py
+python your_peer_node.py
+python your_client.py
 ```
 
 ---
 
-**Status**: Phase 1 Complete ✓  
-**Next**: Build simple game demo (Phase 2)  
+## 🆘 Need Help?
+
+1. **Start with:** [README.md](README.md)
+2. **Understand contracts:** [IMPLEMENTATION_CONTRACT.md](IMPLEMENTATION_CONTRACT.md)
+3. **Avoid pitfalls:** [docs/PERFORMANCE_ISSUES_SUMMARY.md](docs/PERFORMANCE_ISSUES_SUMMARY.md)
+4. **Optimize:** [docs/PERFORMANCE_OPTIMIZATION_GUIDE.md](docs/PERFORMANCE_OPTIMIZATION_GUIDE.md)
+5. **Code style:** [docs/VIBE_CODING_GUIDE.md](docs/VIBE_CODING_GUIDE.md)
+
+---
+
+**Status**: Contract definitions complete ✓  
+**Next**: YOUR implementation (network layer, task executors, etc.)  
 **Vision**: Community gaming for all ❤️
