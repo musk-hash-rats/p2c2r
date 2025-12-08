@@ -198,7 +198,7 @@ Shows 3 complete demos:
 
 ## How They Work Together
 
-### **Scenario: Rendering Cyberpunk 2077 Scene**
+### **Scenario: Rendering modern AAA game Scene**
 
 ```python
 # 1. Client captures frame
@@ -316,7 +316,7 @@ ML + Task Splitting:
 - [ ] Network simulation (add packet loss, jitter)
 
 ### **Medium Term (Alpha Level):**
-- [ ] Unity/Unreal plugin (intercept render calls)
+- [ ] game engine plugin (intercept render calls)
 - [ ] Real GPU workload offloading
 - [ ] WebRTC for peer communication
 - [ ] Dashboard for monitoring

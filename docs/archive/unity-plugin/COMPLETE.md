@@ -290,7 +290,7 @@ Total: 2,500+ lines of code + 1,500+ lines of documentation
 ## 🙏 Thank You
 
 To everyone who helped make this possible:
-- Unity Technologies for the amazing engine
+- Game Engine Companies for the amazing engine
 - The open-source community for inspiration
 - Early testers and feedback providers
 - You, for reading this far!

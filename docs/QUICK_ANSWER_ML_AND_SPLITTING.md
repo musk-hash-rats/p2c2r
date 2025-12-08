@@ -128,7 +128,7 @@ Sequential stages:
 
 ---
 
-## Real-World Example: Cyberpunk 2077
+## Real-World Example: modern AAA game
 
 ```
 Scene: Night City, raining, neon reflections everywhere
@@ -240,7 +240,7 @@ Watch the failure rate drop and speed improve as ML learns!
 Want to go deeper?
 
 1. **✨ Implement real ML models** (replace heuristics with GradientBoosting)
-2. **🎮 Game engine integration** (Unity/Unreal plugin)
+2. **🎮 Game engine integration** (game engine plugin)
 3. **🌐 Network optimization** (predict bandwidth, routing)
 4. **🔒 Security** (task verification, peer reputation)
 5. **💰 Economics** (dynamic pricing, peer rewards)

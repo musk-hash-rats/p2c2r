@@ -33,7 +33,7 @@ This is a **distributed network** across the internet:
 - **Failover built-in**: If helpers drop, VM falls back to cloud compute
 
 **Why This Matters:**
-- 16-year-old plays Cyberpunk 2077 on 2015 laptop
+- 16-year-old plays modern AAA game on 2015 laptop
 - Community helper's idle GPU makes it possible
 - 98% cheaper than buying gaming PC ($0.01/hr vs $2000 upfront)
 - Gamers helping gamers ❤️

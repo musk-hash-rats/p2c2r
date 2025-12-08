@@ -78,12 +78,12 @@ Player just sees: Smooth, beautiful game running on their potato laptop
 ### For Gamers Who Can't Afford Hardware
 - **No $2000 gaming PC needed**
 - **No cloud gaming subscription** ($20/month saved)
-- Play Cyberpunk 2077 on a 2015 MacBook Air
+- Play modern AAA game on a 2015 MacBook Air
 - Community makes it possible
 
 ### For Community Helpers
 - **Your idle GPU helps someone game**
-- When you're at work → Your PC helps a kid play Minecraft
+- When you're at work → Your PC helps a kid play voxel game
 - When you're asleep → Your rig helps a student play Elden Ring
 - **Optional**: Get paid $0.10-0.15/hour (beer money)
 - **Or**: Volunteer to help the community (distributed computing)
@@ -158,7 +158,7 @@ Can't play modern games → Stuck with old games → Sad 😢
 
 **With P2C2R:**
 ```
-1. Alex launches Cyberpunk 2077 on P2C2R
+1. Alex launches modern AAA game on P2C2R
 2. Cloud VM starts ($0.01/hour from Alex's allowance)
 3. Community helpers in USA, Europe, Asia pick up tasks
 4. Alex's laptop just handles display + inputs
@@ -231,7 +231,7 @@ $2000 PC sits idle 8 hours/day → Wasted compute
 - [x] Internet deployment guide
 
 ### Phase 2: Game Integration (Next)
-- [ ] Simple game demo (Minecraft-like)
+- [ ] Simple game demo (voxel game-like)
 - [ ] Task splitting for graphics/physics/AI
 - [ ] Sandboxing for security
 - [ ] Result validation

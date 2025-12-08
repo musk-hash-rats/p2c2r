@@ -384,7 +384,7 @@ ESC: Quit
 
 3. **Integrate with real game engine:**
    - Unity plugin to intercept render calls
-   - Unreal Engine plugin for ray tracing offload
+   - game engine plugin for ray tracing offload
    - Godot integration for indie games
 
 4. **Production ML models:**

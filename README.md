@@ -22,7 +22,7 @@ Play AAA games on a potato laptop. Your community shares their idle GPU/CPU cycl
 
 **The Problem**: Gaming PCs cost $2000+. Cloud gaming costs $20/month. Many gamers can't afford either.
 
-**The Solution**: Community members share their idle compute. A 16-year-old plays Cyberpunk 2077 on a 2015 laptop, powered by helpers' idle GPUs around the world.
+**The Solution**: Community members share their idle compute. A 16-year-old plays modern AAA game on a 2015 laptop, powered by helpers' idle GPUs around the world.
 
 **How It Works**:
 1. **Gamer** starts a cloud VM that hosts the game session (authoritative server)
@@ -92,7 +92,7 @@ P2c2gPOC/
 **Phase 2: Game Integration** 🚧 (Next!)
 - [ ] Sandboxed task execution (security)
 - [ ] Result validation (prevent cheating)
-- [ ] Simple game demo (Minecraft-like)
+- [ ] Simple game demo (voxel game-like)
 - [ ] VM orchestration (authoritative server)
 
 **Phase 3: Community Platform** 🔮 (Future)
@@ -117,7 +117,7 @@ python3 tools/monitoring/check_status.py
 ## 📖 Real-World Example
 
 **Meet Alex** (16, can't afford gaming PC):
-- Launches Cyberpunk 2077 on P2C2R
+- Launches modern AAA game on P2C2R
 - Cloud VM hosts the game session ($0.01/hour)
 - Community helpers run physics, AI, rendering tasks
 - Alex's 2018 laptop just handles display

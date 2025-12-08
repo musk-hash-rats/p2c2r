@@ -80,7 +80,7 @@ cd /path/to/P2c2gPOC
 ./run_network.sh
 ```
 
-2. **Open in Unity:**
+2. **Open in Game Engine:**
 ```bash
 # Open this folder in Unity Hub
 # Unity 2020.3 or later required

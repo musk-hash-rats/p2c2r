@@ -463,7 +463,7 @@ MIT License - see LICENSE file for details.
 Built with ❤️ by the P2C2R team.
 
 **Special thanks to:**
-- Unity Technologies for the game engine
+- Game Engine Companies for the game engine
 - WebSocket contributors for networking
 - The open-source community
 

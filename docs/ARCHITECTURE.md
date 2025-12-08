@@ -345,7 +345,7 @@ multi_device_demo/             → Internet deployment
 **Need to Add:**
 - [ ] **Sandboxing**: Docker/WASM containers for peers
 - [ ] **Validation**: Sophisticated result checking
-- [ ] **Game Demo**: Simple game (Minecraft-like) to prove it works
+- [ ] **Game Demo**: Simple game (voxel game-like) to prove it works
 - [ ] **VM Authority**: Full game server implementation
 - [ ] **Security**: API keys, encryption, rate limiting
 
@@ -429,7 +429,7 @@ Frame 3: VM → Peers (render)  | Frame 2: Peers → VM | Frame 1: Display
 
 ### Phase 4: Real Games 🌟 (12+ months)
 - SDK for game developers
-- Unity/Unreal integration
+- game engine integration
 - Partner with indie devs
 - Community marketplace
 

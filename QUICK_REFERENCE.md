@@ -162,7 +162,7 @@ See: [docs/LEGAL_COMPLIANCE.md](docs/LEGAL_COMPLIANCE.md)
 ## 📊 Real-World Example
 
 **Alex** (16, no gaming PC):
-- Plays Cyberpunk 2077 on 2015 laptop
+- Plays modern AAA game on 2015 laptop
 - Powered by community helpers worldwide
 - Smooth 60fps gaming
 - **Total saved: $1980+**

@@ -226,7 +226,7 @@ This demo shows the **architecture**. For production:
 1. **Real GPU offloading**: Use CUDA/OptiX for actual ray tracing
 2. **Network layer**: WebRTC for peer communication
 3. **Image compression**: Send actual rendered frames
-4. **Game engine integration**: Unity/Unreal plugin
+4. **Game engine integration**: game engine plugin
 
 See `docs/HYBRID_COMPUTE_ARCHITECTURE.md` for the full vision!
 

@@ -246,7 +246,7 @@ P2C2R: Trust random strangers' computers? LOL
 ```
 What You'd Actually Need to Build:
 
-1. Real-time H.264/H.265 Encoding Distribution
+1. Real-time Video Encoding Distribution
    ✗ Complexity: INSANE
    ✗ Existing tools: Not designed for this
    ✗ State management: Nightmare
@@ -304,9 +304,9 @@ Failed Projects:
    - 2-5ms local latency (vs 10-20ms before)
    - Better handling of interference
 
-2. **AV1 Codec**
-   - 30% better compression than H.265
-   - Hardware encoding in RTX 40xx, Intel Arc
+2. **Modern Open Codecs**
+   - 30% better compression than legacy codecs
+   - Hardware encoding in modern GPUs
    - Lower bitrate = less bandwidth = lower latency
 
 3. **5G / Starlink**
@@ -335,7 +335,7 @@ Failed Projects:
 - Turn-based games (Civilization, XCOM)
 - Strategy games (Starcraft, Dota)
 - Single-player RPGs (Elden Ring, Skyrim)
-- Casual games (Minecraft, Stardew Valley)
+- Casual games (voxel game, casual game)
 
 🤔 Maybe Work For:
 - Co-op games (Borderlands, Destiny)

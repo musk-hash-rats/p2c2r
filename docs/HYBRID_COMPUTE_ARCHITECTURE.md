@@ -208,7 +208,7 @@ Client GPU requirement: GTX 1060 / RX 580
 **Traditional Cloud Gaming:**
 ```
 Video stream: 1920×1080 @ 60fps
-H.264 compression: ~50 Mbps
+Video compression: ~50 Mbps
 Monthly (100 hours): 2.3 TB
 Cost: $100-200/month bandwidth
 ```
@@ -253,7 +253,7 @@ Get gaming credits: Basically FREE GAMING
 
 ---
 
-## 🎮 Real-World Example: Cyberpunk 2077
+## 🎮 Real-World Example: modern AAA game
 
 ### **Traditional Cloud Gaming:**
 ```
@@ -261,7 +261,7 @@ Cloud Server:
 Render full scene:      14ms
 Ray tracing:            8ms
 Post-processing:        4ms
-Encode H.264:           6ms
+Video encoding:         6ms
 Network to client:      30ms
 Client decode:          4ms
 ─────────────────────────────
@@ -765,8 +765,8 @@ Potential Acquirers:
 • AMD (Radeon Cloud)
 • Microsoft (Xbox Cloud Gaming)
 • Sony (PlayStation Plus)
-• Epic Games (Unreal Engine integration)
-• Unity Technologies
+• Game Engine Companies (game engine integration)
+• Game Engine Companies
 
 Valuation: $500M - $2B
 Multiple: 10-20x revenue
@@ -777,7 +777,7 @@ Timeline: 3-4 years
 ```
 Public Market Comps:
 • Roblox: 15x revenue multiple
-• Unity: 12x revenue multiple
+• Game Engine: 12x revenue multiple
 • Nvidia: 25x P/E
 
 P2C2R at Year 5:
@@ -823,7 +823,7 @@ Compete with tech giants
 
 **This changes everything. Possible next actions:**
 
-1. Design the middleware architecture for Unity/Unreal
+1. Design the middleware architecture for game engine
 2. Build a proof-of-concept AI assist module
 3. Calculate detailed economics for peer operators
 4. Draft a pitch deck for game developers

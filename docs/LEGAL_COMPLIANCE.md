@@ -40,9 +40,10 @@
 - ❌ Scraped data from protected sources
 - ❌ Libraries with "commercial use prohibited" clauses
 
-### Patent-Encumbered
-- ❌ H.264/H.265 codecs (patent issues) - use VP9/AV1 instead
-- ❌ Proprietary compression algorithms
+### Patent-Encumbered Technologies
+- ❌ Avoid any patented codecs or algorithms
+- ✅ Use only open-source, royalty-free alternatives
+- ✅ Check for patent grants in licenses (Apache 2.0 includes this)
 
 ## 📋 License Compatibility Guide
 
