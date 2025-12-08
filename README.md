@@ -180,6 +180,36 @@ python3 tools/testing/test_quick.py
 python3 tools/monitoring/check_status.py
 ```
 
+## 📚 Performance and Implementation Guides
+
+**NEW: Performance optimization documentation**
+
+Before implementing, review these guides:
+
+1. **[Performance Issues Summary](docs/PERFORMANCE_ISSUES_SUMMARY.md)** ⚡
+   - Quick reference of top 10 performance issues
+   - Code examples of problems and solutions
+   - Priority matrix for what to fix first
+
+2. **[Performance Optimization Guide](docs/PERFORMANCE_OPTIMIZATION_GUIDE.md)** 📖
+   - Comprehensive 500+ line guide
+   - Network, task execution, and coordinator optimization
+   - Benchmarking and monitoring strategies
+
+3. **[Vibe Coding Guide](docs/VIBE_CODING_GUIDE.md)** 🎯
+   - What can be quickly prototyped vs. what needs precision
+   - PEP 8 formatting requirements
+   - Decision framework for implementation approach
+
+**Key Performance Issues Identified:**
+- Blocking operations causing 10-100x slowdown
+- Unrealistic 16ms timeouts causing false failures
+- No connection pooling adding 100-200ms overhead
+- Simple peer selection 2-5x slower than optimal
+- Missing GPU acceleration (10-100x speedup potential)
+
+See the guides above for detailed solutions and implementation examples.
+
 ## 📖 Real-World Example
 
 **Meet Alex** (16, can't afford gaming PC):

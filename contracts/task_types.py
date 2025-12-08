@@ -25,9 +25,9 @@ class FrameUpscaler:
         
         ALGORITHM SELECTION:
         Choose algorithm based on quality vs. speed tradeoff:
-        - bicubic: Fast, decent quality (10-20ms)
-        - lanczos: Better quality, slower (20-40ms)
-        - ML models (ESRGAN, Real-ESRGAN): Best quality, slowest (100-500ms)
+        - bicubic: Fast, decent quality (~10-20ms)
+        - lanczos: Better quality, slower (~20-40ms)
+        - ML models (ESRGAN, Real-ESRGAN): Best quality, slowest (~100-500ms)
         
         GPU ACCELERATION:
         - Use GPU for ML-based upscaling (10-50x speedup)
