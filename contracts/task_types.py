@@ -21,6 +21,30 @@ class FrameUpscaler:
         """
         Upscale a frame from low-res to high-res
         
+        PERFORMANCE OPTIMIZATION: Image upscaling can be CPU/GPU intensive.
+        
+        ALGORITHM SELECTION:
+        Choose algorithm based on quality vs. speed tradeoff:
+        - bicubic: Fast, decent quality (~10-20ms)
+        - lanczos: Better quality, slower (~20-40ms)
+        - ML models (ESRGAN, Real-ESRGAN): Best quality, slowest (~100-500ms)
+        
+        GPU ACCELERATION:
+        - Use GPU for ML-based upscaling (10-50x speedup)
+        - Use GPU texture filtering for bicubic/lanczos (2-5x speedup)
+        - Batch multiple frames for better GPU utilization
+        
+        CACHING AND OPTIMIZATION:
+        - Cache loaded ML models in memory (avoid reload overhead)
+        - Reuse allocated buffers between frames
+        - Use image pyramids for multi-resolution processing
+        - Consider streaming/progressive upscaling for large images
+        
+        COMPRESSION:
+        - Use efficient compression (JPEG quality 85-95 for good size/quality)
+        - Consider WebP for better compression at same quality
+        - Use lossless only when necessary (much larger files)
+        
         Args:
             input_data: JPEG/PNG compressed frame
             params: {
@@ -33,10 +57,12 @@ class FrameUpscaler:
         Returns:
             bytes: Upscaled frame (JPEG/PNG compressed)
         
-        TODO: Decode input_data
-        TODO: Apply upscaling algorithm
-        TODO: Encode result
+        TODO: Decode input_data (use PIL/OpenCV/cv2)
+        TODO: Apply upscaling algorithm (consider GPU acceleration)
+        TODO: Encode result (balance quality vs. size)
         TODO: Return compressed bytes
+        TODO: Consider caching decoded models/resources
+        TODO: Add timing metrics for performance monitoring
         """
         raise NotImplementedError("YOU IMPLEMENT THIS")
 
@@ -81,22 +107,46 @@ class AIExecutor:
         """
         Calculate path from start to goal
         
+        PERFORMANCE OPTIMIZATION: Pathfinding can be expensive for large maps.
+        
+        ALGORITHM COMPLEXITY:
+        - A*: O(b^d) where b=branching, d=depth (best for most cases)
+        - Dijkstra: O(E log V) where E=edges, V=vertices (when all costs equal)
+        - JPS (Jump Point Search): Much faster than A* on grid maps
+        
+        OPTIMIZATION TECHNIQUES:
+        1. Pre-compute navigation meshes (navmesh) for static geometry
+        2. Use hierarchical pathfinding for large maps (HPA*, HAA*)
+        3. Cache paths and incrementally update when obstacles change
+        4. Limit search depth/time and return partial path if timeout
+        5. Use spatial hashing for obstacle queries
+        
+        HEURISTIC OPTIMIZATION:
+        - Use octile distance for 8-directional movement
+        - Use Euclidean distance for continuous movement
+        - Pre-compute heuristic values when possible
+        
         Args:
             input_data: {
                 "start": [x, y],
                 "goal": [x, y],
-                "obstacles": [[x, y], ...],
-                "algorithm": "astar" | "dijkstra"  # optional
+                "obstacles": [[x, y], ...],  # Consider spatial index for large maps
+                "algorithm": "astar" | "dijkstra" | "jps"  # optional
             }
         
         Returns:
             dict: {
                 "path": [[x, y], ...],
                 "distance": float,
-                "algorithm_used": str
+                "algorithm_used": str,
+                "nodes_explored": int  # Add for performance analysis
             }
         
         TODO: Implement pathfinding algorithm (A*, Dijkstra, etc.)
+        TODO: Add spatial indexing for obstacle queries (quadtree, grid)
+        TODO: Implement early termination if timeout
+        TODO: Consider caching computed paths
+        TODO: Profile and optimize hotspots
         """
         raise NotImplementedError("YOU IMPLEMENT THIS")
 
@@ -185,6 +235,36 @@ def execute_task(task_type: str, input_data, params: dict = None):
     """
     Route task to appropriate executor
     
+    PERFORMANCE OPTIMIZATION: This routing function is called for every task.
+    
+    OPTIMIZATION TECHNIQUES:
+    1. Use hash map lookup instead of if-elif chains (O(1) vs O(n))
+    2. Validate task_type once at submission, not at execution
+    3. Pre-compile executors to avoid function lookup overhead
+    4. Consider using match-case (Python 3.10+) for slight performance gain
+    
+    EXECUTION PATTERNS:
+    - Synchronous: Simple but blocks thread
+    - Async: Better for I/O-bound tasks
+    - Thread pool: Better for CPU-bound tasks
+    - Process pool: Better for heavy computation (avoids GIL)
+    
+    CACHING STRATEGY:
+    Consider implementing result caching:
+    ```python
+    cache_key = hash((task_type, hash(input_data), hash(params)))
+    if cache_key in result_cache:
+        return result_cache[cache_key]
+    result = executor(input_data, params)
+    result_cache[cache_key] = result
+    return result
+    ```
+    
+    ERROR HANDLING:
+    - Validate task_type early (fail fast)
+    - Catch executor exceptions and return error result
+    - Add telemetry for failure analysis
+    
     Args:
         task_type: Type of task to execute
         input_data: Task-specific input
@@ -193,9 +273,12 @@ def execute_task(task_type: str, input_data, params: dict = None):
     Returns:
         Task-specific output
     
-    TODO: Look up executor in TASK_EXECUTORS
+    TODO: Look up executor in TASK_EXECUTORS (O(1) hash map lookup)
     TODO: Call executor with input_data and params
-    TODO: Handle errors
+    TODO: Handle errors gracefully (catch exceptions, return error result)
+    TODO: Add performance metrics (execution time, success rate)
+    TODO: Consider implementing result caching for repeated tasks
+    TODO: Add timeout mechanism to prevent runaway executions
     """
     if task_type not in TASK_EXECUTORS:
         raise ValueError(f"Unknown task type: {task_type}")
