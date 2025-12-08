@@ -3,6 +3,56 @@ NETWORK PROTOCOL CONTRACT
 
 You implement these message formats however you want.
 This is just a suggested structure.
+
+PERFORMANCE CONSIDERATIONS:
+
+MESSAGE FORMAT EFFICIENCY:
+1. JSON: Easy to debug, human-readable, but larger size and slower parsing
+   - Size: ~500 bytes for typical message
+   - Parse time: ~0.5-1ms
+   - Best for: Development, debugging, small-scale deployments
+
+2. MessagePack: Binary JSON, faster and smaller
+   - Size: ~300 bytes (40% smaller than JSON)
+   - Parse time: ~0.1-0.2ms (5x faster than JSON)
+   - Best for: Production with moderate scale
+
+3. Protocol Buffers: Strongly typed, very efficient
+   - Size: ~150 bytes (70% smaller than JSON)
+   - Parse time: ~0.05-0.1ms (10x faster than JSON)
+   - Best for: High-performance production systems
+   - Requires: .proto schema files and code generation
+
+4. Cap'n Proto / FlatBuffers: Zero-copy serialization
+   - Size: Similar to Protobuf
+   - Parse time: Near zero (no deserialization needed)
+   - Best for: Extreme performance requirements
+   - More complex to implement
+
+5. Custom Binary: Maximum control
+   - Size: Minimal (only essential data)
+   - Parse time: Fastest (direct memory access)
+   - Best for: When you need absolute maximum performance
+   - Most work to implement and maintain
+
+COMPRESSION:
+For large binary data (frames, models), consider compression:
+- zlib: Good balance (20-50% size reduction, moderate CPU)
+- lz4: Very fast, decent compression (useful for real-time)
+- zstd: Excellent compression, still fast (best for most cases)
+- brotli: Best compression, slower (good for static data)
+
+BATCHING:
+Send multiple messages in one packet to reduce overhead:
+- Reduces TCP/WebSocket framing overhead
+- Better utilization of network bandwidth
+- Trade-off: Increased latency for batched messages
+
+CONNECTION OPTIMIZATION:
+- Keep WebSocket connections alive (avoid reconnection overhead)
+- Use TCP_NODELAY to disable Nagle's algorithm for low latency
+- Consider HTTP/2 or HTTP/3 for multiplexing
+- Use connection pooling for multiple coordinators
 """
 
 # MESSAGE FORMAT SUGGESTIONS (you choose JSON, Protobuf, custom binary, etc.)
@@ -33,6 +83,20 @@ GAMER_REGISTER = {
 }
 
 # 4. TASK SUBMISSION (from gamer to coordinator)
+# PERFORMANCE NOTE: This is the most frequent message type in the system.
+# Optimize for size and serialization speed.
+#
+# SIZE OPTIMIZATION:
+# - Use base64 encoding for binary data (33% overhead but text-safe)
+# - Or send binary data separately via binary WebSocket frames (no overhead)
+# - Or use shared memory/cache for large data (send reference instead)
+#
+# For 1920x1080 frame:
+# - Raw RGB: 6.2 MB
+# - JPEG (quality 85): ~200-500 KB
+# - WebP (quality 85): ~150-300 KB (better compression)
+# - Reference to cached data: ~32 bytes (hash/ID)
+#
 TASK_SUBMIT = {
     "msg_type": "task_submit",
     "task_id": "task_12345",
@@ -82,6 +146,21 @@ RESULT_DELIVERY = {
 }
 
 # 8. HEARTBEAT (from peer to coordinator)
+# PERFORMANCE NOTE: Heartbeats should be lightweight and infrequent enough
+# to not create network overhead, but frequent enough to detect failures quickly.
+#
+# HEARTBEAT STRATEGY:
+# - Interval: 5-10 seconds (balance between responsiveness and overhead)
+# - Use TCP keepalive instead if supported (OS-level, more efficient)
+# - Only send when peer is idle (avoid interfering with task execution)
+# - Consider adaptive intervals based on network conditions
+#
+# OVERHEAD CALCULATION:
+# - Message size: ~100 bytes
+# - Frequency: every 5 seconds
+# - Bandwidth per peer: 20 bytes/sec (negligible)
+# - 1000 peers: 20 KB/sec (still negligible)
+#
 HEARTBEAT = {
     "msg_type": "heartbeat",
     "peer_id": "peer_laptop_001",
