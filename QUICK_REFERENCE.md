@@ -1,6 +1,6 @@
 # P2C2R Quick Reference
 
-**Last Updated**: December 7, 2025
+**Last Updated**: December 8, 2025
 
 ---
 
