@@ -51,20 +51,26 @@ cat IMPLEMENTATION_CONTRACT.md
 ## 🏗️ Project Structure (Where Everything Is)
 
 ```
-P2c2gPOC/
-├── 📄 README.md              # Start here
-├── 📄 start.sh               # Run this to start
+p2c2r/
+├── 📄 README.md                 # Start here (describes contracts)
+├── 📄 QUICK_REFERENCE.md        # This file
+├── 📄 IMPLEMENTATION_CONTRACT.md # How to implement
 │
-├── 📁 network/               # Core code (cloud, peer, renter)
-├── 📁 multi_device_demo/     # Internet deployment
-├── 📁 tools/
-│   ├── testing/              # test_quick.py, etc.
-│   └── monitoring/           # Dashboards & status
+├── 📁 contracts/                # Interface definitions (YOU IMPLEMENT)
+│   ├── peer_node.py            # Worker node contract
+│   ├── coordinator.py          # Orchestrator contract
+│   ├── gamer_client.py         # Client contract
+│   ├── protocol.py             # Message formats
+│   └── task_types.py           # Task interfaces
+│
+├── 📁 network/                  # Implementation area (empty)
+├── 📁 multi_device_demo/        # Deployment guidance
+├── 📁 scripts/                  # Setup & run templates
 └── 📁 docs/
-    ├── THE_VISION.md         # Read this! ❤️
-    ├── ARCHITECTURE.md       # Technical design
-    ├── LEGAL_COMPLIANCE.md   # Open source policy
-    └── PROJECT_STRUCTURE.md  # File organization
+    ├── THE_VISION.md           # Read this! ❤️
+    ├── ARCHITECTURE.md         # Technical design
+    ├── LEGAL_COMPLIANCE.md     # Open source policy
+    └── ...                     # More documentation
 ```
 
 ---
